@@ -1,4 +1,6 @@
-# AI Meeting Intelligence & Action Tracking
+#.                                                AI Meeting Intelligence & Action Tracking
+
+<img width="1536" height="1024" alt="Ai_Meeting_Intelligence" src="https://github.com/user-attachments/assets/d725b339-31fd-4481-a91f-3b13408e2d5e" />
 
 An AI-powered meeting intelligence system that converts meeting audio or video recordings into structured and useful information such as meeting summaries, decisions, action items, assignees, deadlines, and task status.
 
