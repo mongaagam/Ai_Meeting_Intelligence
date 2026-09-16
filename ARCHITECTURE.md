@@ -478,6 +478,40 @@ A production version can later use PostgreSQL or another suitable database.
 
 ---
 
+## 6.7 FastAPI
+
+FastAPI can be used as the backend API layer of the application.
+
+It handles communication between the Streamlit interface and the processing services.
+
+The API can be responsible for:
+
+- Receiving meeting files
+- Managing meeting processing requests
+- Calling audio processing services
+- Triggering Faster-Whisper transcription
+- Sending transcripts for LLM analysis
+- Returning structured meeting results
+- Communicating with the database
+
+The basic flow is:
+
+```text
+Streamlit
+    ↓
+FastAPI
+    ↓
+Backend Services
+    ↓
+FFmpeg / Faster-Whisper / LLM
+    ↓
+Database
+```
+
+FastAPI provides a separate API layer between the user interface and the backend processing components.
+
+---
+
 # 7. Structured LLM Output
 
 The LLM output should be structured so that it can easily be stored and displayed.

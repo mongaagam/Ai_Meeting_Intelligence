@@ -1,1 +1,20 @@
-.venv
+# virtual Environment
+.venv/
+venv/
+
+# environment variable/api key
+.env
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# upload/generated meeting data
+data/uploads/*
+data/audio/*
+data/transcripts/*
+data/results/*
