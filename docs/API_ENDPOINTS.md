@@ -1,29 +1,49 @@
-1. Authentication APIs — 4
+## 1. Authentication APIs — 4
 
-POST /auth/signup
-POST /auth/login
-POST /auth/logout
-GET /users/me
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/auth/signup` | Create a new user account |
+| POST | `/auth/login` | Authenticate user and log in |
+| POST | `/auth/logout` | Log out the current user |
+| GET | `/users/me` | Get current user details |
 
-2. Meeting APIs — 3
+## 2. Meeting APIs — 3
 
-POST /meetings/upload
-GET /meetings
-GET /meetings/{id}
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/meetings/upload` | Upload a meeting audio or video file |
+| GET | `/meetings` | Get the list of meetings |
+| GET | `/meetings/{id}` | Get details of a specific meeting |
 
-3. Transcription APIs — 2
+## 3. Transcription APIs — 2
 
-POST /transcribe/{id}
-GET /transcribe/{id}/status
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/transcribe/{id}` | Start transcription for a meeting |
+| GET | `/transcribe/{id}/status` | Check transcription status |
 
-4. AI Analysis APIs — 2
+## 4. AI Analysis APIs — 2
 
-POST /analyze/{id}
-GET /results/{id}
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/analyze/{id}` | Analyze the meeting transcript using AI |
+| GET | `/results/{id}` | Get AI-generated meeting results |
 
-5. Task Management APIs — 4
+## 5. Task Management APIs — 4
 
-GET /tasks
-POST /tasks
-PUT /tasks/{id}
-DELETE /tasks/{id}
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/tasks` | Get all tasks/action items |
+| POST | `/tasks` | Create a new task |
+| PUT | `/tasks/{id}` | Update an existing task |
+| DELETE | `/tasks/{id}` | Delete a task |
+
+### API Summary
+
+**Total APIs: 15**
+
+- Authentication: 4
+- Meetings: 3
+- Transcription: 2
+- AI Analysis: 2
+- Task Management: 4
