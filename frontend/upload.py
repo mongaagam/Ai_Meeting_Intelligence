@@ -14,7 +14,6 @@ Allowed_extension = [
     "mkv"
 ]
 
-
 # because in computer file size are commonly stored measured in bytes
 Max_Size = 200 * 1024 * 1024
 
@@ -134,9 +133,9 @@ if uploaded_file is not None:
                         f"Meeting saved as: {file_name}"
                     )
 
-                    st.write(
-                        f"Saved to: `{file_path}`"
-                    )
+                    # st.write(
+                    #     f"Saved to: `{file_path}`"
+                    # )
 
 
                 except Exception as e:
