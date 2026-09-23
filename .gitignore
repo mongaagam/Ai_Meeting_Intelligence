@@ -18,3 +18,4 @@ data/uploads/*
 data/audio/*
 data/transcripts/*
 data/results/*
+*.mp4

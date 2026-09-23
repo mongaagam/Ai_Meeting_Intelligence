@@ -1,18 +1,13 @@
 import streamlit as st
 from pathlib import Path
 
-
 upload_dir = Path("../data/uploads")
-
-
-Allowed_extension = [
-    "mp3",
-    "wav",
-    "m4a",
-    "mp4",
-    "mov",
-    "mkv"
-]
+# mp3 for download audio
+# wav audio recorder
+# m4a iphone vois memo
+# mp4 Zoom, microsoft team
+# mov iphone mac digital camera
+Allowed_extension = ["mp3","wav","m4a","mp4","mov"]
 
 # because in computer file size are commonly stored measured in bytes
 Max_Size = 200 * 1024 * 1024
@@ -20,7 +15,6 @@ Max_Size = 200 * 1024 * 1024
 
 st.set_page_config(
     page_title="Upload Meeting",
-    page_icon="🎙️",
     layout="centered"
 )
 
@@ -33,10 +27,6 @@ st.write(
     "for processing and transcription."
 )
 
-st.info(
-    "Supported formats: MP3, WAV, M4A, MP4, MOV, MKV | "
-    "Maximum size: 200 MB"
-)
 
 
 # file upload
