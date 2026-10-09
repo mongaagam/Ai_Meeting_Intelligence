@@ -18,3 +18,7 @@ data/uploads/*
 data/audio/*
 data/transcripts/*
 data/results/*
+
+*.db
+*.sqlite
+*.sqlite3
