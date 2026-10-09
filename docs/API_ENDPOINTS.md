@@ -1,3 +1,5 @@
+<img width="1536" height="1024" alt="AI_Meeting_Intelligence" src="https://github.com/user-attachments/assets/0288687d-cbed-4d46-9143-e1ead3bb8c19" />
+
 ## 1. Authentication APIs — 4
 
 | Method | Endpoint | Description |
