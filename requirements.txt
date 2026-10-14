@@ -1,4 +1,10 @@
+streamlit==1.64.0
+fastapi==0.141.1
+uvicorn==0.53.0
 groq==1.7.0
 faster-whisper==1.2.1
+assemblyai==1.6.1
 python-dotenv==1.2.3
-streamlit==1.64.0
+pandas==3.0.6
+bcrypt==5.0.0
+email-validator==2.3.0
