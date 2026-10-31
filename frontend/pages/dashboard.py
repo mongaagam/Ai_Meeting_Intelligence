@@ -66,7 +66,8 @@ user_email = st.session_state.get(
 
 # database
 
-DB_PATH = Path("data/users.db")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DB_PATH = PROJECT_ROOT / "data" / "users.db"
 
 def get_connection():
 
@@ -79,32 +80,26 @@ def get_connection():
 # ye function current user ki total meeting count karta hai
 
 def get_meeting_count(user_id):
-
     conn = get_connection()
 
-    cursor = conn.cursor()
+    try:
+        cursor = conn.cursor()
 
-    cursor.execute(
+        cursor.execute("""
+            SELECT COUNT(*) AS total
+            FROM meetings
+            WHERE user_id = ?
+        """, (user_id,))
 
-        """
+        result = cursor.fetchone()
+        return result["total"]
 
-        SELECT COUNT(*) AS total
+    except sqlite3.Error as e:
+        st.error(f"Database error: {e}")
+        return 0
 
-        FROM meetings
-
-        WHERE user_id = ?
-
-        """,
-
-        (user_id,)
-
-    )
-
-    result = cursor.fetchone()
-
-    conn.close()
-
-    return result["total"]
+    finally:
+        conn.close()
 
 # ye function user ki total meeting show krta hai
 
