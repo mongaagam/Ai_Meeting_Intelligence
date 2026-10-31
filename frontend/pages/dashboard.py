@@ -9,16 +9,54 @@ import ast
 import re
 
 from pathlib import Path
+import requests
+import streamlit as st
 
-st.set_page_config(
+API_BASE_URL = "http://13.233.34.230:8000"
 
-    page_title="Dashboard | AI Meeting Intelligence",
 
-    page_icon="📊",
+def get_meeting_count(user_id):
+    try:
+        response = requests.get(
+            f"{API_BASE_URL}/meetings/count",
+            timeout=15
+        )
+        response.raise_for_status()
+        data = response.json()
 
-    layout="wide"
+        # Backend response structure ke according key adjust karni hogi.
+        return data.get("total", data.get("count", 0))
 
-)
+    except requests.RequestException as e:
+        st.error(f"Unable to fetch meeting count: {e}")
+        return 0
+
+def get_recent_meetings(user_id):
+    try:
+        response = requests.get(
+            f"{API_BASE_URL}/meetings/",
+            timeout=15
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if isinstance(data, dict):
+            data = data.get("meetings", [])
+
+        if not isinstance(data, list):
+            return []
+
+        # Show only meetings belonging to the logged-in user.
+        user_meetings = [
+            meeting for meeting in data
+            if str(meeting.get("user_id")) == str(user_id)
+        ]
+
+        return user_meetings[:5]
+
+    except requests.RequestException as e:
+        st.error(f"Unable to fetch recent meetings: {e}")
+        return []
 
 # ye streamlit me user ki session related value rakhne ka mecahnism hai tumhare project me login ke baad logged_in,user_id,user_name jaise value store ki jati hai
 
@@ -65,17 +103,6 @@ user_email = st.session_state.get(
 )
 
 # database
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DB_PATH = PROJECT_ROOT / "data" / "users.db"
-
-def get_connection():
-
-    conn = sqlite3.connect(DB_PATH)
-
-    conn.row_factory = sqlite3.Row
-
-    return conn
 
 # ye function current user ki total meeting count karta hai
 
