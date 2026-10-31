@@ -46,7 +46,7 @@ if st.button(
     else:
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/auth/signup",
+                "http://52.66.243.219:8000/auth/signup",
                 json={
                     "full_name": full_name,
                     "email": email,
