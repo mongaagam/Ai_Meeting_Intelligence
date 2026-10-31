@@ -70,11 +70,8 @@ if st.button(
             else:
                 st.error("Something went wrong.")
 
-        except requests.exceptions.ConnectionError:
-            st.error(
-                "Cannot connect to FastAPI server. "
-                "Please make sure FastAPI is running."
-            )
+        except requests.exceptions.RequestException as e:
+            st.error(f"API connection error: {e}")
 
 st.write("")
 
